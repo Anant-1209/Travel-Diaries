@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import {
   HiAnnotation,
@@ -8,6 +8,8 @@ import {
 } from 'react-icons/hi';
 import { Button, Card, Table } from 'flowbite-react'; // Assuming Table is from flowbite-react
 import { Link } from 'react-router-dom';
+import DOMPurify from 'dompurify';
+import parse from 'react-html-parser';
 
 export default function DashboardComp() {
   const [users, setUsers] = useState([]);
@@ -170,7 +172,7 @@ export default function DashboardComp() {
                 comments.map((comment) => (
                   <Table.Row key={comment._id} className='bg-white dark:border-gray-700 dark:bg-gray-800'>
                     <Table.Cell className='w-96'>
-                      <p className='line-clamp-2'>{comment.content}</p>
+                      <p className='line-clamp-2'>{parse(DOMPurify.sanitize(comment.content))}</p>
                     </Table.Cell>
                     <Table.Cell>{comment.numberOfLikes}</Table.Cell>
                   </Table.Row>
@@ -197,7 +199,7 @@ export default function DashboardComp() {
                   <div className='flex flex-col md:ml-4 mt-4 md:mt-0'>
                     <h3 className='text-lg font-semibold'>{post.title}</h3>
                     <p className='text-sm text-gray-600'>{post.category}</p>
-                    <p className='text-sm mt-2'>{post.content.slice(0, 100)}...</p>
+                    <p className='text-sm mt-2'>{parse(DOMPurify.sanitize(post.content.slice(0, 100)))}...</p>
                   </div>
                 </Card>
               ))}
