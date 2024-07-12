@@ -6,7 +6,7 @@ import {
   HiDocumentText,
   HiOutlineUserGroup,
 } from 'react-icons/hi';
-import { Button, Card } from 'flowbite-react';
+import { Button, Card, Table } from 'flowbite-react'; // Assuming Table is from flowbite-react
 import { Link } from 'react-router-dom';
 
 export default function DashboardComp() {
@@ -136,10 +136,10 @@ export default function DashboardComp() {
               <Table.HeadCell>User image</Table.HeadCell>
               <Table.HeadCell>Username</Table.HeadCell>
             </Table.Head>
-            {users &&
-              users.map((user) => (
-                <Table.Body key={user._id} className='divide-y'>
-                  <Table.Row className='bg-white dark:border-gray-700 dark:bg-gray-800'>
+            <Table.Body className='divide-y'>
+              {users &&
+                users.map((user) => (
+                  <Table.Row key={user._id} className='bg-white dark:border-gray-700 dark:bg-gray-800'>
                     <Table.Cell>
                       <img
                         src={user.profilePicture}
@@ -149,8 +149,8 @@ export default function DashboardComp() {
                     </Table.Cell>
                     <Table.Cell>{user.username}</Table.Cell>
                   </Table.Row>
-                </Table.Body>
-              ))}
+                ))}
+            </Table.Body>
           </Table>
         </div>
         <div className='flex flex-col w-full md:w-auto shadow-md p-2 rounded-md dark:bg-gray-800'>
@@ -165,17 +165,17 @@ export default function DashboardComp() {
               <Table.HeadCell>Comment content</Table.HeadCell>
               <Table.HeadCell>Likes</Table.HeadCell>
             </Table.Head>
-            {comments &&
-              comments.map((comment) => (
-                <Table.Body key={comment._id} className='divide-y'>
-                  <Table.Row className='bg-white dark:border-gray-700 dark:bg-gray-800'>
+            <Table.Body className='divide-y'>
+              {comments &&
+                comments.map((comment) => (
+                  <Table.Row key={comment._id} className='bg-white dark:border-gray-700 dark:bg-gray-800'>
                     <Table.Cell className='w-96'>
                       <p className='line-clamp-2'>{comment.content}</p>
                     </Table.Cell>
                     <Table.Cell>{comment.numberOfLikes}</Table.Cell>
                   </Table.Row>
-                </Table.Body>
-              ))}
+                ))}
+            </Table.Body>
           </Table>
         </div>
         <div className='flex flex-col w-full md:w-auto shadow-md p-2 rounded-md dark:bg-gray-800'>
