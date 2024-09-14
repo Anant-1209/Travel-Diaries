@@ -7,7 +7,7 @@ export default function Destinations() {
       <p className='text-md text-gray-500'>Explore beautiful destinations in India and plan your next adventure with our curated travel guides!</p>
       <ul className='text-lg text-gray-700'>
         <li><a href='/post/mysore ' className='text-blue-500 hover:underline'>Mysore</a></li>
-        
+        <li><a href='/post/mysore ' className='text-blue-500 hover:underline'>Mysore1</a></li>
       </ul>
       <CallToAction />
     </div>
