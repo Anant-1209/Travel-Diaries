@@ -7,7 +7,7 @@ export default function CallToAction() {
         <h2 className='text-4xl font-extrabold text-blue-600'>
           Embark on Your Next Adventure!
         </h2>
-        <p className='text-red-400 text-lg my-4 text-lg'>
+        <p className='text-black text-lg my-4 text-lg'>
           Discover breathtaking destinations and make unforgettable memories.
         </p>
         <Button gradientDuoTone='cyanToBlue' className='rounded-lg mt-4'>
